@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/src/utils/indedx"
+import { formatCurrency } from "@/src/utils"
 import { Product } from "@prisma/client"
 import Image from "next/image"
 import AddProductButton from "./AddProductButton"
