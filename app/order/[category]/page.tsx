@@ -14,10 +14,8 @@ async function getProducts(category: string){
   return products;
 }
 
-export default async function OrderPage({searchParams} : {searchParams: Promise<{ [key: string]: string | string[] | undefined }>;}) {
-  const { category } = await searchParams
-  const categoryParam = typeof category === "string" ? category : ""
-  const products = await getProducts(categoryParam)
+export default async function OrderPage({params} : {params: { category: string }}) {
+  const products = await getProducts(params.category)
 
   return (
     <>
