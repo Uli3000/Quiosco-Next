@@ -1,13 +1,13 @@
 "use client"
 
-import { Prisma } from "@prisma/client"
+import { prisma } from "@/src/lib/prisma"
 import { useStore } from "@/src/store"
 
-// Define el tipo Product excluyendo null
-type Product = NonNullable<Prisma.ProductGetPayload<{}>>
+// Infiere el tipo Product directamente del modelo
+type Product = Awaited<ReturnType<typeof prisma.product.findFirst>>
 
 type AddProductButtonProps = {
-  product: Product
+  product: NonNullable<Product>  // NonNullable elimina la posibilidad de null
 }
 
 export default function AddProductButton({product}: AddProductButtonProps) {
