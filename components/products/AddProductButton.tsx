@@ -1,13 +1,16 @@
 "use client"
 
-import { Product } from "@prisma/client"
+import { Prisma } from "@prisma/client"
 import { useStore } from "@/src/store"
+
+// Define el tipo Product excluyendo null
+type Product = NonNullable<Prisma.ProductGetPayload<{}>>
 
 type AddProductButtonProps = {
   product: Product
 }
 
-export default function AddProductButton({product} : AddProductButtonProps) {
+export default function AddProductButton({product}: AddProductButtonProps) {
   const addToOrder = useStore((state) => state.addToOrder)
 
   return (
