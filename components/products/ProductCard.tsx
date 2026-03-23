@@ -1,7 +1,7 @@
 import { formatCurrency, getImagePath } from "@/src/utils"
-import { Product } from "@prisma/client"
 import Image from "next/image"
 import AddProductButton from "./AddProductButton"
+import { Product } from "@/src/generated/prisma"
 
 type ProductCardProps = {
     product: Product
