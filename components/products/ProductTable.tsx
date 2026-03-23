@@ -1,22 +1,21 @@
 import { formatCurrency } from "@/src/utils"
 import Link from "next/link"
 
-// Define el tipo aquí mismo
 type ProductWithCategory = {
-    id: string
+    id: number 
     name: string
     price: number
     image: string
-    categoryId: string
+    categoryId: number 
     category: {
-        id: string
+        id: number
         name: string
         slug: string
     }
 }
 
 type ProductTableProps = {
-    products: ProductWithCategory[]  // Array de productos con categoría
+    products: ProductWithCategory[] 
 }
 
 export default function ProductTable({products}: ProductTableProps) {
