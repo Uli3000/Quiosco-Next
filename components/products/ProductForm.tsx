@@ -1,6 +1,6 @@
 import { prisma } from "@/src/lib/prisma"
 import ImageUpload from "./ImageUpload"
-import { Product } from "@/src/generated/prisma"
+import { Product, Category } from "@/src/generated/prisma"
 
 async function getCategories(){
     return await prisma.category.findMany()
@@ -56,7 +56,7 @@ export default async function ProductForm({product}: ProductFormProps) {
                     defaultValue={product?.categoryId}
                 >
                     <option value="">-- Seleccione --</option>
-                    {categories.map(category => (
+                    {categories.map((category:Category) => (
                         <option 
                             key={category.id}
                             value={category.id}
