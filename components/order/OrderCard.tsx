@@ -16,7 +16,7 @@ export default function OrderCard({ order } : OrderCardProps) {
             <p className='text-2xl font-medium text-gray-900'>Cliente: {order.name}</p>
             <p className='text-lg font-medium text-gray-900'>Productos Ordenados:</p>
             <dl className="mt-6 space-y-4">
-                {order.orderProducts.map(product => (
+                {order.orderProducts.map((product: OrderWithProduts['orderProducts'][number]) => (
                     <div key={product.productId} className="flex items-center gap-2 border-t border-gray-200 pt-4">
                         <dt className="flex items-center text-sm text-gray-600">
                             <span className="font-black">({product.quantity}) {''}</span>
