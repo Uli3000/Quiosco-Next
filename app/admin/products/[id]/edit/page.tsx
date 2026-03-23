@@ -19,9 +19,9 @@ async function getProductById(id: number) {
     return product
 }
 
-export default async function EditProductsPage({params} : {params: {id: string}}) {
-    const param = await params
-    const product = await getProductById(+param.id)
+export default async function EditProductsPage({searchParams} : {searchParams: Promise<{ [key: string]: string | string[] | undefined }>;}) {
+    const { id } = await searchParams
+    const product = await getProductById(+id!)
     
   return (
     <>
