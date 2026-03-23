@@ -1,8 +1,11 @@
 import { OrderWithProduts } from "@/src/types"
 
+type OrderProduct = OrderWithProduts['orderProducts'][number]
+
 type LatestOrderItemProps = {
     order: OrderWithProduts
 }
+
 export default function LatestOrderItem({order} : LatestOrderItemProps) {
   return (
     <div className="bg-white shadow p-5 space-y-5 rounded-lg">
@@ -14,7 +17,7 @@ export default function LatestOrderItem({order} : LatestOrderItemProps) {
             className="divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
             role="list"
         >
-            {order.orderProducts.map(product => (
+            {order.orderProducts.map((product: OrderProduct) => (
                 <li
                     key={product.id}
                     className="flex py-6 text-lg"
